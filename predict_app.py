@@ -228,7 +228,7 @@ ALL_MODELS = {
     "Random Forest":            RandomForestClassifier(n_estimators=200, random_state=42),
     "Gradient Boosting":        GradientBoostingClassifier(n_estimators=150, random_state=42),
     "XGBoost (Extra Trees)":    ExtraTreesClassifier(n_estimators=200, random_state=42),
-    "AdaBoost":                 AdaBoostClassifier(n_estimators=100, random_state=42, algorithm='SAMME'),
+    "AdaBoost":                 AdaBoostClassifier(n_estimators=100, random_state=42),
     "Support Vector Machine":   SVC(kernel='rbf', probability=True, random_state=42),
     "K-Nearest Neighbors":      KNeighborsClassifier(n_neighbors=7),
     "Decision Tree":            DecisionTreeClassifier(max_depth=8, random_state=42),
