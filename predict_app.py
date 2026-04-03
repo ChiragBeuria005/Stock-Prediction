@@ -430,12 +430,29 @@ with st.sidebar:
 
     st.markdown('<div class="sec-hdr">🤖 Model Selection</div>', unsafe_allow_html=True)
     st.caption("Pick models to train & compare")
-    select_all = st.checkbox("Select All 15 Models", value=False)
+
+    # Initialize defaults on first load
+    for name in MODEL_INFO:
+        if f"chk_{name}" not in st.session_state:
+            st.session_state[f"chk_{name}"] = name in ["Random Forest", "Gradient Boosting", "Logistic Regression"]
+
+    # Toggle all on/off
+    def toggle_all():
+        new_val = not all(st.session_state.get(f"chk_{n}", False) for n in MODEL_INFO)
+        for n in MODEL_INFO:
+            st.session_state[f"chk_{n}"] = new_val
+
+    all_checked = all(st.session_state.get(f"chk_{n}", False) for n in MODEL_INFO)
+    st.checkbox(
+        "Select All 15 Models",
+        value=all_checked,
+        on_change=toggle_all,
+        key="select_all_toggle"
+    )
 
     selected_models = []
     for name, info_m in MODEL_INFO.items():
-        checked = select_all or name in ["Random Forest", "Gradient Boosting", "Logistic Regression"]
-        if st.checkbox(f"{info_m['icon']} {name}", value=checked, key=f"chk_{name}"):
+        if st.checkbox(f"{info_m['icon']} {name}", key=f"chk_{name}"):
             selected_models.append(name)
 
     st.markdown('<div class="sec-hdr">⚙️ Training Config</div>', unsafe_allow_html=True)
