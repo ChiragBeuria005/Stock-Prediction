@@ -382,7 +382,7 @@ def get_current_price(ticker):
 # ── Chart Theme ──────────────────────────────────────────────────────────────────
 CT = {"bg":"#04080f","surface":"#080f1e","surface2":"#0c1527","border":"#162440",
       "border2":"#1e3060","cyan":"#00f5ff","green":"#00ff88","red":"#ff3366",
-      "yellow":"#ffcc00","purple":"#8b5cf6","blue":"#3b82f6","text":"#e2eaf5","muted":"#4a6080"}
+      "yellow":"#ffcc00","orange":"#ff6b35","purple":"#8b5cf6","blue":"#3b82f6","text":"#e2eaf5","muted":"#4a6080"}
 
 def theme(fig, height=400, title=None):
     fig.update_layout(
@@ -715,7 +715,7 @@ if run_btn or "results" in st.session_state:
             ("F1 Score",      f"{res['f1']*100:.2f}%",       CT["purple"]),
             ("Precision",     f"{res['precision']*100:.2f}%", CT["green"]),
             ("Recall",        f"{res['recall']*100:.2f}%",    CT["yellow"]),
-            ("CV Score",      f"{res['cv_score']*100:.2f}%" if res['cv_score'] else "N/A", CT["orange"]),
+            ("CV Score",      f"{res['cv_score']*100:.2f}%" if res['cv_score'] else "N/A", CT["blue"]),
         ]
         for i, (lbl, val, clr) in enumerate(metrics_list):
             with mc[i]:
