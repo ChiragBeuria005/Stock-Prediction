@@ -465,7 +465,7 @@ st.markdown(f"""
         </div>
         <div style="text-align:right;">
             <div style="font-family:'JetBrains Mono';font-size:36px;font-weight:700;color:{price_color};">
-                ${cur_price:.2f if cur_price else 'N/A'}
+                ${f"{cur_price:.2f}" if cur_price else "N/A"}
             </div>
             <div style="font-family:'JetBrains Mono';font-size:14px;color:{price_color};">
                 {arrow} {abs(price_chg):.2f}% today
