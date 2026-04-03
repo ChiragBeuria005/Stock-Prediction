@@ -234,7 +234,7 @@ ALL_MODELS = {
     "Decision Tree":            DecisionTreeClassifier(max_depth=8, random_state=42),
     "Naive Bayes":              GaussianNB(),
     "LDA":                      LinearDiscriminantAnalysis(),
-    "QDA":                      QuadraticDiscriminantAnalysis(),
+    "QDA":                      QuadraticDiscriminantAnalysis(reg_param=0.3),
     "Ridge Classifier":         RidgeClassifier(),
     "SGD Classifier":           SGDClassifier(loss='modified_huber', random_state=42, max_iter=1000),
     "MLP Neural Network":       MLPClassifier(hidden_layer_sizes=(128,64,32), max_iter=500, random_state=42),
